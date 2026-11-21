@@ -11,6 +11,10 @@ TestResults/
 .vscode/
 .idea/
 
+# NuGet packages (restored from packages.config)
+packages/
+*.nupkg
+
 # Build output and local packaging
 [Dd]ebug/
 [Rr]elease/
@@ -34,3 +38,4 @@ appsettings.Development.json
 # OS files
 Thumbs.db
 .DS_Store
+

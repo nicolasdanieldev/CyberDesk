@@ -19,7 +19,7 @@ Construído com **C#**, **Windows Forms** e **MySQL**, aplicando Programação O
 
 </div>
 
-> 📌 **Publicação em andamento:** a documentação está disponível; os arquivos da solução Visual Studio serão adicionados ao repositório pelo autor.
+> 📌 A solução Visual Studio, o código-fonte e o script de criação do banco estão disponíveis neste repositório.
 
 ---
 
@@ -83,19 +83,22 @@ flowchart LR
 
 ```text
 CyberDesk/
-├── Forms/                 # Dashboard, ativos, incidentes, histórico e relatórios
+├── CyberDesk.sln           # Solução Visual Studio
+├── CyberDesk.slnx          # Solução no formato XML
+├── CyberDesk.csproj        # Projeto Windows Forms (.NET Framework 4.7.2)
+├── frm*.cs                # Formulários e arquivos do Designer
 ├── Models/                # Ativo, Incidente, HistoricoIncidente e DTOs
 ├── Services/              # Cálculo de risco, Collections e relatórios
-├── Repositories/          # Operações de persistência e consultas SQL
+├── Repository/            # Operações de persistência e consultas SQL
 ├── Data/                  # Gerenciamento da conexão MySQL
 ├── Exceptions/            # Exceção de validação personalizada
 ├── Enums/                 # Estados dos incidentes
 ├── Controls/              # Componentes gráficos próprios
-├── Database/              # Script de criação do banco
+├── Properties/            # Recursos e propriedades do projeto
+├── Database/              # 01_criar_banco_cyberdesk.sql
+├── packages.config        # Dependências NuGet
 └── Program.cs             # Inicialização da aplicação
 ```
-
-*A árvore representa a organização lógica utilizada no desenvolvimento. Os arquivos do Visual Studio e do Designer podem aparecer em outras pastas conforme a solução publicada.*
 
 ### Conceitos de engenharia aplicados
 
@@ -120,10 +123,10 @@ CyberDesk/
 
 ## 🚀 Como executar localmente
 
-**Pré-requisitos:** Windows, Visual Studio com suporte a Windows Forms, .NET compatível com o arquivo `.csproj` da solução, MySQL Server (recomendado 8.0.16+) e MySQL Workbench (opcional).
+**Pré-requisitos:** Windows, Visual Studio com suporte a Windows Forms, .NET Framework 4.7.2 Developer Pack, MySQL Server (recomendado 8.0.16+) e MySQL Workbench (opcional).
 
-1. Clone o repositório e abra o arquivo `.sln` no Visual Studio.
-2. Restaure as dependências NuGet; o projeto utiliza **MySqlConnector**.
+1. Clone o repositório e abra o arquivo `CyberDesk.sln` no Visual Studio.
+2. Restaure as dependências NuGet; o projeto utiliza **MySqlConnector**. Os pacotes de `packages.config` devem ser restaurados na pasta `packages/`, ao lado de `CyberDesk.csproj`.
 3. Execute o script `Database/01_criar_banco_cyberdesk.sql` no MySQL.
 4. Configure a variável de ambiente de usuário **`CYBERDESK_MYSQL_CONNECTION`** no Windows:
 
@@ -132,7 +135,7 @@ CyberDesk/
    ```
 
    Substitua os marcadores pela sua configuração local. **Não salve credenciais reais no repositório**. Reinicie o Visual Studio após configurar a variável de ambiente.
-5. Defina `frmPrincipal` como formulário inicial em `Program.cs`, se ainda não estiver configurado.
+5. O formulário inicial `frmPrincipal` já está configurado em `Program.cs`.
 6. Compile e execute (`F5`). Cadastre um ativo antes de registrar incidentes.
 
 > A aplicação requer acesso a um servidor MySQL configurado. O README não inclui credenciais nem dados privados.
