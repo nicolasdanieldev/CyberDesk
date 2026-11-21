@@ -1,0 +1,36 @@
+# Visual Studio / .NET
+.vs/
+**/bin/
+**/obj/
+TestResults/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.rsuser
+.vscode/
+.idea/
+
+# Build output and local packaging
+[Dd]ebug/
+[Rr]elease/
+*.log
+*.tmp
+*.bak
+
+# Private or local configuration
+.env
+.env.*
+!.env.example
+appsettings.Development.json
+*.pfx
+*.pem
+*.key
+*.p12
+*.p8
+*.sqlite
+*.db
+
+# OS files
+Thumbs.db
+.DS_Store
